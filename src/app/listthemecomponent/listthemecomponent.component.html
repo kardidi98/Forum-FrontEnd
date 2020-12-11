@@ -1,0 +1,28 @@
+
+<div class="container">
+  <form #form="ngForm" (ngSubmit)="chercherParMotCle(form.value)">
+    <div class="form-group">
+      <input type="text" name="keyword" [(ngModel)]="keyword" /> &nbsp;
+      <input class="btn btn-primary" type="submit" value="Chercher" [disabled]="!keyword" />
+
+    </div>
+  </form>
+  <table class="table table-striped table-bordered">
+    <caption>Liste des Thémes</caption>
+    <thead>
+      <tr>
+        <th scope="col">Titre</th>
+        <th scope="col">Description</th>
+        <th scope="col">Moderateur</th>
+        <th scope="col">Forum</th>
+        <th scope="col">Total des Pubs</th>
+        <th scope="col">Total des vues</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of Themes; let i = index" app-theme [Theme]="t" (themeSelected)="selectItem(t.id)">
+      </tr>
+    </tbody>
+  </table>
+</div>
