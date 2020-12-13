@@ -7,9 +7,10 @@ import { ListthemecomponentComponent } from './listthemecomponent/listthemecompo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ThemeComponent } from './listthemecomponent/theme/theme.component';
 import { FormsModule } from '@angular/forms';
-import { FormThemeComponent } from './form-theme/form-theme.component';
 import { ThemeService } from 'src/services/theme.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { FormThemeComponent } from './listthemecomponent/form-theme/form-theme.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FormsModule,
     HttpClientModule
   ],

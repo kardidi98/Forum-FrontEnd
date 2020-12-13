@@ -22,15 +22,14 @@ export class ListthemecomponentComponent implements OnInit {
   }
   chercherParMotCle(motCle:any){
     this.keyword = "";
-    //this.Themes =  this.themeService.getByKeyword(motCle.keyword)
   }
 
-  selectItem(id: number){
+  // selectItem(id: number){
     
-    return this.themeService.get(id).subscribe((data: {}) => {
-      this.Themes = data;
+  //   return this.themeService.get(id).subscribe((data: {}) => {
+  //     this.Themes = data;
       
-    });
-  }
+  //   });
+  // }
 
 }

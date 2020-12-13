@@ -1,12 +1,11 @@
 export class Theme {
 
-    id :number;
-    titre : string;
-    description : string;
+    _id :number;
     moderateur : string;
     forum : string;
-    totalPost : number = 0;
-    totalViews : number = 0;
+    titre : string;
+    description : string;
+    
 
     constructor() { }
   

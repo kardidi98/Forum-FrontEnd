@@ -4,39 +4,47 @@ import { Theme } from 'src/modeles/Theme';
 import { baseUrl } from 'src/Urls/backUrl';
 
 import { HttpHeaders } from '@angular/common/http';
+import { TimeoutError } from 'rxjs';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Access-Control-Allow-Origin': '*'
-  })
-};
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
 
+   httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
+
   Themes: Array<Theme> = new Array<Theme>();
 
   
-  constructor(private httpClient: HttpClient) {
-    
-   }
+  constructor(private httpClient: HttpClient) {}
 
-  add(theme: Theme): void{
-    this.Themes.push(theme)
+  add(theme: Theme){
+    return this.httpClient.post(baseUrl+"themes",theme, this.httpOptions); 
   }
-  get(id: number){
-    return  this.httpClient.get(baseUrl+"themes/"+id, httpOptions);
+
+  update(theme: Theme){
+    return this.httpClient.put(baseUrl+"themes/"+theme._id,theme, this.httpOptions); 
   }
-  getByKeyword(keyword: any): Array<Theme>{
-    return this.Themes.filter((item)=>{
-      return (item.titre===keyword) || (item.description===keyword) || (item.moderateur===keyword) 
-    })
+
+  get(id: any){
+    return  this.httpClient.get(baseUrl+"themes/"+id, this.httpOptions);
+  }
+  getByKeyword(keyword: any){
+    return this.httpClient.get(baseUrl+"themes/titre/"+TimeoutError,this.httpOptions)
+    
+  }
+  getByTitle(titre: any){
+    return  this.httpClient.get(baseUrl+"themes/titre/"+titre, this.httpOptions);
   }
   getAll(){
-    return  this.httpClient.get(baseUrl+"themes", httpOptions);
+    return  this.httpClient.get(baseUrl+"themes", this.httpOptions);
     
   } 
 
