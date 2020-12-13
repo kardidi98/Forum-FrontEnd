@@ -7,7 +7,7 @@
             <form #form="ngForm" (ngSubmit)="submitTheme(form.value)">
                 <div class="form-group">
                     <label>Titre</label>
-                    <input  class="form-control" id="titreTheme" type="text" placeholder="Titre" name="titre"
+                    <input  class="form-control"  type="text" placeholder="Titre" name="titre"
                         [(ngModel)]="Theme.titre" required [disabled]="Theme.titre"/>
                     
                 </div>

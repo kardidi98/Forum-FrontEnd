@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Formulaire d'Inscription</h1>
+<div mat-dialog-content>
+  <form #RegisterRorm="ngForm" (ngSubmit)="register(RegisterRorm.value)">
+    <div class="form-group">
+        <label>Nom</label>
+        <input  class="form-control" type="text" placeholder="Nom" name="nom"
+            [(ngModel)]="user.nom" required />
+        
+    </div>
+    <div class="form-group">
+        <label>Prénom</label>
+        <input class="form-control" type="text" placeholder="Prénom" name="prenom"
+            [(ngModel)]="user.prenom" required />
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input class="form-control" type="email" placeholder="adresse@gmail.com" name="email" [(ngModel)]="user.email" required />
+    </div>
+    <div class="form-group">
+        <label>Mot de passe</label>
+        <input class="form-control" type="password" placeholder="******" name="password" [(ngModel)]="user.password" required />
+    </div>
+    <button mat-button mat-dialog-close type="submit" class="btn btn-primary" [disabled]="!RegisterRorm.valid" style="float: right;">
+        S'inscrire
+    </button>
+</form>
+</div>

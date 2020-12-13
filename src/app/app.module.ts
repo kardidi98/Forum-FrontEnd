@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListthemecomponentComponent } from './listthemecomponent/listthemecomponent.component';
@@ -11,13 +10,22 @@ import { ThemeService } from 'src/services/theme.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FormThemeComponent } from './listthemecomponent/form-theme/form-theme.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './users/user/user.component';
+import { LoginUserComponent } from './users/login-user/login-user.component';
+import { RegisterUserComponent } from './users/register-user/register-user.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     ThemeComponent,
     ListthemecomponentComponent,
-    FormThemeComponent
+    FormThemeComponent,
+    UsersComponent,
+    UserComponent,
+    LoginUserComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +33,9 @@ import { FormThemeComponent } from './listthemecomponent/form-theme/form-theme.c
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    
   ],
   providers: [ThemeService],
   bootstrap: [AppComponent]

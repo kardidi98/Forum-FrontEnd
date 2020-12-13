@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top">
+<nav class="navbar navbar-light bg-light navbar-expand-lg sticky-top">
   <a href="#" class="navbar-brand">E-Forum</a>
   <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
     <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,9 @@
       <li clas="navbar-item">
         <a href="#" routerLink="/themes" class="nav-link">Accueil</a>
       </li>
-      
+      <li clas="navbar-item">
+        <a href="#" routerLink="/themes" class="nav-link">Themes</a>
+      </li>
       <li clas="navbar-item">
         <a href="#" routerLink="/themes" class="nav-link">About</a>
       </li>
@@ -16,12 +18,14 @@
         <a href="#" routerLink="/themes" class="nav-link">Contact</a>
       </li>
     </ul>
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto ">
       <li clas="navbar-item">
-        <a href="#" routerLink="/themes" class="nav-link">login</a>
+        <button class="btn btn-primary" mat-button (click)="openLoginDialog()" >Login</button>
       </li>
-      
-     
+      &nbsp;
+      <li clas="navbar-item">
+        <button class="btn btn-primary" mat-button (click)="openRegisterDialog()" >Inscription</button>
+      </li>
     </ul>
   </div>
 </nav>
