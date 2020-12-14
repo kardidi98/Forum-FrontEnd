@@ -4,6 +4,8 @@ import { NotificationsService } from 'src/services/notifications.service';
 import { ThemeService } from 'src/services/theme.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { UserService } from 'src/services/user.service';
+import { User } from 'src/modeles/User';
 
 @Component({
   selector: 'app-form-theme',
@@ -13,6 +15,7 @@ import { NgForm } from '@angular/forms';
 export class FormThemeComponent implements OnInit {
 
   Theme: Theme = new Theme();
+  Moderators: any = [] ;
   @ViewChild(NgForm) editForm: NgForm;
   formTitle: string = "Ajouter un thème:";
   btnType: string = "Soumettre";
@@ -21,6 +24,7 @@ export class FormThemeComponent implements OnInit {
 
   constructor(private themeService: ThemeService
     , private notifyService: NotificationsService
+    , private userService: UserService
     , private router: Router
     , private route: ActivatedRoute) { }
 
@@ -42,6 +46,9 @@ export class FormThemeComponent implements OnInit {
 
       }
     );
+    this.userService.getAll().subscribe((res)=>{
+      this.Moderators = res;
+    })
   }
   submitTheme(values: Theme) {
     
@@ -94,4 +101,6 @@ export class FormThemeComponent implements OnInit {
         this.notifyService.showError("Erreur dans le serveur, essayer plus tard!", "Erreur", this.toasterConfig)
       });
   }
+
+  
 }

@@ -4,7 +4,6 @@ import { Theme } from 'src/modeles/Theme';
 import { baseUrl } from 'src/Urls/backUrl';
 
 import { HttpHeaders } from '@angular/common/http';
-import { TimeoutError } from 'rxjs';
 
 
 
@@ -37,7 +36,7 @@ export class ThemeService {
     return  this.httpClient.get(baseUrl+"themes/"+id, this.httpOptions);
   }
   getByKeyword(keyword: any){
-    return this.httpClient.get(baseUrl+"themes/titre/"+TimeoutError,this.httpOptions)
+    return this.httpClient.get(baseUrl+"themes/titre/"+keyword,this.httpOptions)
     
   }
   getByTitle(titre: any){

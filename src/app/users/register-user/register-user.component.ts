@@ -28,7 +28,6 @@ export class RegisterUserComponent implements OnInit {
 
   register(values: User){
     this.userService.getByEmail(values.email).subscribe(res => {
-      console.log(res);
       
       if(!res){
         this.userService.add(values).subscribe(res=>{

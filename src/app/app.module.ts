@@ -15,6 +15,10 @@ import { UserComponent } from './users/user/user.component';
 import { LoginUserComponent } from './users/login-user/login-user.component';
 import { RegisterUserComponent } from './users/register-user/register-user.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UserService } from 'src/services/user.service';
+import { NotificationsService } from 'src/services/notifications.service';
+import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     UsersComponent,
     UserComponent,
     LoginUserComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,
     
   ],
-  providers: [ThemeService],
+  providers: [ThemeService, UserService, NotificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

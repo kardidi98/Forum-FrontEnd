@@ -22,6 +22,9 @@ export class ThemeComponent implements OnInit {
     this.router.navigate(['themes/'+this.Theme._id]);
   }
 
+  getPosts(){
+    this.router.navigate(['posts/themes/'+this.Theme._id]);
+  }
 
 
 }

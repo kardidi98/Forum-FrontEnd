@@ -1,10 +1,12 @@
 .mt-50{
     margin-top: 50px;
 }
+
 .masthead {
     margin-bottom: 50px;
     background: no-repeat center center;
-    background-color: #868e96;
+    background-image: url('../../images/home-bg.jpg') ;
+    background-size: cover;
     background-attachment: scroll;
     position: relative;
     background-size: cover;
@@ -98,3 +100,4 @@
       font-size: 30px;
     }
   }
+  

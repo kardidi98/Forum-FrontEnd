@@ -1,4 +1,3 @@
-import { registerLocaleData } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginUserComponent } from './users/login-user/login-user.component';
@@ -12,6 +11,7 @@ import { RegisterUserComponent } from './users/register-user/register-user.compo
 })
 export class AppComponent {
   title = 'E-Forum';
+  currentYear = new Date().getFullYear();
   constructor(private dialog: MatDialog) {}
 
   openLoginDialog() {

@@ -24,12 +24,6 @@ export class ListthemecomponentComponent implements OnInit {
     this.keyword = "";
   }
 
-  // selectItem(id: number){
-    
-  //   return this.themeService.get(id).subscribe((data: {}) => {
-  //     this.Themes = data;
-      
-  //   });
-  // }
+ 
 
 }

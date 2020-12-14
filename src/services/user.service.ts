@@ -19,13 +19,19 @@ export class UserService {
   };
 
   add(user:User){
-    
     return this.httpClient.post(baseUrl+"users", user,this.httpOptions);
   }
 
   getByEmail(email:string){
-    
     return this.httpClient.get(baseUrl+"users/email/"+email,this.httpOptions);
+  }
+
+  getAll(){
+    return this.httpClient.get(baseUrl+"users",this.httpOptions);
+  }
+
+  getById(id:any){
+    return this.httpClient.get(baseUrl+"users/"+id,this.httpOptions);
   }
 
 }
