@@ -1,5 +1,5 @@
 <!-- Page Header -->
-<section class="masthead" style="background-image: url('../assets/images/home-bg.jpg') ; background-size: cover;">
+<section class="masthead" >
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -36,11 +36,10 @@
                             </div>
                             <div class="form-group">
                                 <label>Moderateur</label>
-                                <select class="form-control" type="text" name="moderateur"
+                                <select class="form-control " type="text" name="moderateur"
                                     [(ngModel)]="Theme.moderateur" required>
-                                    <option value="Default" disabled>Choisir un modérateur</option>
-                                    <option *ngFor="let m of Moderators" [value]="m._id">{{m.nom + " "+ m.prenom}}
-                                    </option>
+                                    <option value="Default"  disabled>Choisir un modérateur</option>
+                                    <option *ngFor="let m of Moderators" [value]="m._id">{{m.nom + " "+ m.prenom}}</option>
                                 </select>
                             </div>
                             <div class="form-group">

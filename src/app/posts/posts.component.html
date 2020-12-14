@@ -27,7 +27,9 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let p of posts; let i = index">
-                    <td>{{p.user}}</td>
+                    <td *ngFor="let u of getUser(p.user)">
+                        {{u.nom + " " + u.prenom}}
+                    </td>
                     <td>{{p.titre}}</td>
                     <td>{{p.message}}</td>
                   </tr>
