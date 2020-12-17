@@ -102,5 +102,13 @@ export class FormThemeComponent implements OnInit {
       });
   }
 
+  goHome(){
+    this.router.navigate(["/accueil"]);
+  }
+
+  goThemes(){
+    this.router.navigate(["/themes"]);
+  }
+
   
 }

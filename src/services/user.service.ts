@@ -7,6 +7,7 @@ import { baseUrl } from 'src/Urls/backUrl';
   providedIn: 'root'
 })
 export class UserService {
+  
 
   user : User;
   constructor(private httpClient: HttpClient) { }
@@ -33,5 +34,7 @@ export class UserService {
   getById(id:any){
     return this.httpClient.get(baseUrl+"users/"+id,this.httpOptions);
   }
+
+  
 
 }

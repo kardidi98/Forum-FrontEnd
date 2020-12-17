@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FormThemeComponent } from './listthemecomponent/form-theme/form-theme.component';
 import { ListthemecomponentComponent } from './listthemecomponent/listthemecomponent.component';
+import { FormPostComponent } from './posts/form-post/form-post.component';
 import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"addTheme", component: FormThemeComponent},
   {path:"users", component: UsersComponent},
   {path:"posts/themes/:idTheme", component: PostsComponent},
+  {path:"addPost/themes/:idtheme", component: FormPostComponent},
   {path:"accueil", component: HomeComponent},
   {path: "", redirectTo:"/accueil", pathMatch:"full"}
 ];

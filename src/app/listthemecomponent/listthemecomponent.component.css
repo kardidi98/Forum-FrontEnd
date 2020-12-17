@@ -1,103 +1,47 @@
 
-.mt-50{
-    margin-top: 50px;
+.mt-10{
+    margin-top: 10px;
 }
 
-.masthead {
-    margin-bottom: 50px;
-    background: no-repeat center center;
-    background-image: url('../../images/home-bg.jpg') ;
-    background-size: cover;
-    background-attachment: scroll;
-    position: relative;
+.theme-preview > a {
+  color: #212529;
+}
+
+.theme-preview > a:focus, .theme-preview > a:hover {
+  text-decoration: none;
+  color: #0085A1;
+}
+
+.theme-preview > a > .theme-title {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.theme-preview > a > .theme-subtitle {
+  font-weight: 300;
+  margin: 0 0 10px;
+}
+
+.theme-preview > .theme-meta {
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+  color: #868e96;
+}
+
+.theme-preview > .theme-meta > a {
+  text-decoration: none;
+  color: #212529;
+}
+
+.theme-preview > .theme-meta > a:focus, .theme-preview > .theme-meta > a:hover {
+  text-decoration: underline;
+  color: #0085A1;
+}
+
+@media only screen and (min-width: 768px) {
+  .theme-preview > a > .theme-title {
+    font-size: 36px;
   }
-  
-  .masthead .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #212529;
-    opacity: 0.5;
-  }
-  
-  .masthead .page-heading,
-  .masthead .post-heading,
-  .masthead .site-heading {
-    padding: 200px 0 150px;
-    color: white;
-  }
-  
-  @media only screen and (min-width: 768px) {
-    .masthead .page-heading,
-    .masthead .post-heading,
-    .masthead .site-heading {
-      padding: 200px 0;
-    }
-  }
-  
-  .masthead .page-heading,
-  .masthead .site-heading {
-    text-align: center;
-  }
-  
-  .masthead .page-heading h1,
-  .masthead .site-heading h1 {
-    font-size: 50px;
-    margin-top: 0;
-  }
-  
-  .masthead .page-heading .subheading,
-  .masthead .site-heading .subheading {
-    font-size: 24px;
-    line-height: 1.1;
-    display: block;
-    margin: 10px 0 0;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  
-  @media only screen and (min-width: 768px) {
-    .masthead .page-heading h1,
-    .masthead .site-heading h1 {
-      font-size: 80px;
-    }
-  }
-  
-  .masthead .post-heading h1 {
-    font-size: 35px;
-  }
-  
-  headermasthead .post-heading .meta,
-  .masthead .post-heading .subheading {
-    line-height: 1.1;
-    display: block;
-  }
-  
-  .masthead .post-heading .subheading {
-    font-size: 24px;
-    font-weight: 600;
-    margin: 10px 0 30px;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  
-  .masthead .post-heading .meta {
-    font-size: 20px;
-    font-weight: 300;
-    font-style: italic;
-    font-family: 'Lora', 'Times New Roman', serif;
-  }
-  
-  .masthead .post-heading .meta a {
-    color: #fff;
-  }
-  
-  @media only screen and (min-width: 768px) {
-    .masthead .post-heading h1 {
-      font-size: 55px;
-    }
-    .masthead .post-heading .subheading {
-      font-size: 30px;
-    }
-  }
-  
+}

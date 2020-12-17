@@ -19,7 +19,7 @@ export class PostService {
   };
 
   add(user:Post){
-    return this.httpClient.post(baseUrl+"posts", user,this.httpOptions);
+    return this.httpClient.post(baseUrl+"posts/5fcaadc79c06e64900a239ed", user,this.httpOptions);
   }
 
   getByTheme(id:any){

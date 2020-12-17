@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Theme } from 'src/modeles/Theme';
 import { ThemeService } from 'src/services/theme.service';
@@ -11,7 +12,7 @@ import { ThemeService } from 'src/services/theme.service';
 export class ListthemecomponentComponent implements OnInit {
   Themes: any = [];
   keyword = "";
-  constructor(private  themeService: ThemeService) { }
+  constructor(private router : Router,private  themeService: ThemeService) { }
 
   ngOnInit(): void {
 
@@ -22,6 +23,9 @@ export class ListthemecomponentComponent implements OnInit {
   }
   chercherParMotCle(motCle:any){
     this.keyword = "";
+  }
+  goHome(){
+    this.router.navigate(["/accueil"]);
   }
 
  

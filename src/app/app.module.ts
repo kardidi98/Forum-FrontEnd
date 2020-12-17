@@ -19,6 +19,8 @@ import { UserService } from 'src/services/user.service';
 import { NotificationsService } from 'src/services/notifications.service';
 import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostComponent } from './posts/post/post.component';
+import { FormPostComponent } from './posts/form-post/form-post.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { PostsComponent } from './posts/posts.component';
     LoginUserComponent,
     RegisterUserComponent,
     HomeComponent,
-    PostsComponent
+    PostsComponent,
+    PostComponent,
+    FormPostComponent
   ],
   imports: [
     BrowserModule,

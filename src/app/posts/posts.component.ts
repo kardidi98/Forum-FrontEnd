@@ -14,6 +14,7 @@ export class PostsComponent implements OnInit {
 
   posts: any = [];
   users : any = [];
+  themeId:any;
   constructor(private servicePost: PostService,
     private serviceUser : UserService,
      private router: Router
@@ -26,8 +27,11 @@ export class PostsComponent implements OnInit {
       params => {
         const id = params.get('idTheme');
         if (id) {
-          this.servicePost.getByTheme(id).subscribe((data: Post) => {
+          this.themeId = id;
+          this.servicePost.getByTheme(id).subscribe((data) => {
             this.posts = data;
+            
+            
             
           });
         }
@@ -41,6 +45,17 @@ export class PostsComponent implements OnInit {
   
   getUser(id:any){
     return this.users.filter(item => item._id === id)
+  }
+  goHome(){
+    this.router.navigate(["/accueil"]);
+  }
+
+  goThemes(){
+    this.router.navigate(["/themes"]);
+  }
+
+  NewPost(){
+    this.router.navigate(["/addPost/themes/"+this.themeId]);
   }
 
 }

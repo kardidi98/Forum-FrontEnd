@@ -1,0 +1,20 @@
+<td>
+    <div>
+      <div class="link">
+        {{post.titre}}
+      </div>
+      <small class="text-muted">
+        <em class="fa fa-history"></em> &nbsp;{{post.updatedAt|date:'dd/MM/yyyy'}}
+
+      </small>
+    </div>
+
+    <br />
+    <small class="text-muted">
+      {{post.message}}
+    </small>
+  </td>
+  <td><em class="fa fa-comments fa-lg "></em>&nbsp;10</td>
+  <td class="author" >
+    <em class="fa fa-user-circle fa-lg "></em>&nbsp;{{user.nom + " " + user.prenom}}
+  </td>
