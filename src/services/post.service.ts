@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from 'src/modeles/Post';
-import { baseUrl } from 'src/Urls/backUrl';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +19,15 @@ export class PostService {
   };
 
   add(user:Post){
-    return this.httpClient.post(baseUrl+"posts/5fcaadc79c06e64900a239ed", user,this.httpOptions);
+    return this.httpClient.post(environment.baseUrl+"posts/5fcaadc79c06e64900a239ed", user,this.httpOptions);
   }
 
   getByTheme(id:any){
-    return this.httpClient.get(baseUrl+"posts/themes/"+id,this.httpOptions);
+    return this.httpClient.get(environment.baseUrl+"posts/themes/"+id,this.httpOptions);
+  }
+
+  getById(id:any){
+    return this.httpClient.get(environment.baseUrl+"posts/"+id,this.httpOptions);
   }
 
 

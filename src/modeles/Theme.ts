@@ -1,6 +1,6 @@
 export class Theme {
 
-    _id :number;
+    _id :string;
     moderateur : string;
     forum : string;
     titre : string;

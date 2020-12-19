@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Theme } from 'src/modeles/Theme';
-import { baseUrl } from 'src/Urls/backUrl';
+import { environment } from '../environments/environment';
 
 import { HttpHeaders } from '@angular/common/http';
 
@@ -25,25 +25,25 @@ export class ThemeService {
   constructor(private httpClient: HttpClient) {}
 
   add(theme: Theme){
-    return this.httpClient.post(baseUrl+"themes",theme, this.httpOptions); 
+    return this.httpClient.post(environment.baseUrl+"themes",theme, this.httpOptions); 
   }
 
   update(theme: Theme){
-    return this.httpClient.put(baseUrl+"themes/"+theme._id,theme, this.httpOptions); 
+    return this.httpClient.put(environment.baseUrl+"themes/"+theme._id,theme, this.httpOptions); 
   }
 
   get(id: any){
-    return  this.httpClient.get(baseUrl+"themes/"+id, this.httpOptions);
+    return  this.httpClient.get(environment.baseUrl+"themes/"+id, this.httpOptions);
   }
   getByKeyword(keyword: any){
-    return this.httpClient.get(baseUrl+"themes/titre/"+keyword,this.httpOptions)
+    return this.httpClient.get(environment.baseUrl+"themes/titre/"+keyword,this.httpOptions)
     
   }
   getByTitle(titre: any){
-    return  this.httpClient.get(baseUrl+"themes/titre/"+titre, this.httpOptions);
+    return  this.httpClient.get(environment.baseUrl+"themes/titre/"+titre, this.httpOptions);
   }
   getAll(){
-    return  this.httpClient.get(baseUrl+"themes", this.httpOptions);
+    return  this.httpClient.get(environment.baseUrl+"themes", this.httpOptions);
     
   } 
 

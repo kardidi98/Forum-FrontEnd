@@ -1,0 +1,113 @@
+<!-- Page Header -->
+<section class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>COMMENTAIRES</h1>
+                    <hr />
+                    <span class="subheading">Liste des commentaires</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container d-flex align-items-center">
+    <div class="path" (click)="goHome()"><em class="fa fa-home"></em>&nbsp;Accueil</div>&nbsp;
+    <em class="fa fa-angle-right"></em>&nbsp;
+    <div class="path" (click)="goThemes()">Thèmes</div>&nbsp;
+    <em class="fa fa-angle-right"></em>&nbsp;
+    <div class="path" (click)="goPosts()">Posts</div>&nbsp;
+    <em class="fa fa-angle-right"></em>&nbsp;
+    <div>Commentaires</div>
+</section>
+<div class="container mt-50">
+    <div class="row">
+        <div class="col-lg-12 col-md-10 mx-auto">
+
+            &nbsp;
+            <div class="table table-padding">
+                
+                <div class=" row">
+                    
+                    <div class=" col-sm-3 author d-flex align-items-center">
+                        <em class="fa fa-user-circle fa-4x "></em>&nbsp;<div>{{postUser.nom + " " + postUser.prenom}}
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div style="font-size: 20px;">
+                            {{post.titre}}
+                        </div>
+                        <small class="text-muted">
+                            <em class="fa fa-history"></em> &nbsp;{{post.updatedAt|date:'dd/MM/yyyy'}}
+
+                        </small>
+                        <div class="text-muted mt-10" [innerHTML]="post.message">
+                        </div>
+                    </div>
+
+                </div>
+                &nbsp;
+                <hr />
+                <div class="container row align-items-center justify-content-center">
+                    <div class="mt-10 col-sm-12 col-lg-9 text-muted">
+                        <em class="fa fa-comments fa-lg "></em>
+                        &nbsp;
+                        Total: {{comments.length}}
+                    </div>
+                    
+                    <button class="mt-10 col-sm-12 col-lg-3 btn btn-primary" (click)="hideForm(comment_form)">
+                        + Nouveau Commentaire
+                    </button>
+                </div>
+               
+                &nbsp;
+                <table class="table  table-striped " *ngIf="comments.length > 0; else elseComments">
+                    <caption>Liste des Commentaires</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Commentaire </th>
+                            <th scope="col">Auteur</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of comments; let i = index" app-comment [comment]="c">
+                        </tr>
+                    </tbody>
+                </table>
+                <ng-template #elseComments>
+                    <table class="table  table-striped ">
+                        <caption>Liste des Publications</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Commentaire</th>
+                                <th scope="col">Auteur</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <h2 class="container  d-flex justify-content-center">
+                                        Aucun résultat
+                                    </h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </ng-template>
+                
+                <div  class="rounded comment-form" [hidden] = "!showForm">
+                    <div app-form-comment>
+                     
+                    </div>
+                </div>
+                
+            </div>
+            <div #comment_form></div>
+        </div>
+    </div>
+</div>

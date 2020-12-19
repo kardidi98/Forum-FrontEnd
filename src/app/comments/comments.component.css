@@ -1,0 +1,19 @@
+.mt-50{
+    margin-top: 50px;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.post div{
+    margin-right: 20px;
+}
+.author{
+    font-weight: 500;
+    color: #DD4B78;
+}
+.comment-form{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+     background-color: white;
+}
+

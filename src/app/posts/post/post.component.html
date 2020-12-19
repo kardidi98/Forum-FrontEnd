@@ -1,6 +1,6 @@
 <td>
     <div>
-      <div class="link">
+      <div class="link" (click) = "getPost()">
         {{post.titre}}
       </div>
       <small class="text-muted">
@@ -10,11 +10,11 @@
     </div>
 
     <br />
-    <small class="text-muted">
-      {{post.message}}
+    <small class="text-muted" [innerHTML]="post.message">
+      
     </small>
   </td>
-  <td><em class="fa fa-comments fa-lg "></em>&nbsp;10</td>
+  <td><em class="fa fa-comments fa-lg "></em>&nbsp;{{lenComment}}</td>
   <td class="author" >
     <em class="fa fa-user-circle fa-lg "></em>&nbsp;{{user.nom + " " + user.prenom}}
   </td>

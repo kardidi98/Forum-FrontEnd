@@ -5,7 +5,6 @@ import { ThemeService } from 'src/services/theme.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/services/user.service';
-import { User } from 'src/modeles/User';
 
 @Component({
   selector: 'app-form-theme',
@@ -50,7 +49,7 @@ export class FormThemeComponent implements OnInit {
       this.Moderators = res;
     })
   }
-  submitTheme(values: Theme) {
+  submitTheme() {
     
     if (this.Theme._id) {
       this.updateTheme(this.Theme)
@@ -62,7 +61,7 @@ export class FormThemeComponent implements OnInit {
 
         if (!res[0]) {
 
-          this.themeService.add(this.Theme).subscribe(res => {
+          this.themeService.add(this.Theme).subscribe(data => {
             this.initialzeTheme();
             this.notifyService.showSuccess("Thème ajouté avec succès!", "Succès", this.toasterConfig)
             setTimeout(() => {

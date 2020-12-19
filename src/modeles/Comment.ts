@@ -1,14 +1,13 @@
 
 
-export class Post {
+export class Comment {
 
     _id :string;
     user : string;
-    theme : string;
-    titre : string;
+    post : string;
     message : string;
+    description : string;
     
-
     constructor() { }
   
   

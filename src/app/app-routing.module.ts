@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CommentsComponent } from './comments/comments.component';
 import { HomeComponent } from './home/home.component';
 import { FormThemeComponent } from './listthemecomponent/form-theme/form-theme.component';
 import { ListthemecomponentComponent } from './listthemecomponent/listthemecomponent.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"users", component: UsersComponent},
   {path:"posts/themes/:idTheme", component: PostsComponent},
   {path:"addPost/themes/:idtheme", component: FormPostComponent},
+  {path:"posts/:postId", component: CommentsComponent},
   {path:"accueil", component: HomeComponent},
   {path: "", redirectTo:"/accueil", pathMatch:"full"}
 ];

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/modeles/User';
-import { baseUrl } from 'src/Urls/backUrl';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +20,19 @@ export class UserService {
   };
 
   add(user:User){
-    return this.httpClient.post(baseUrl+"users", user,this.httpOptions);
+    return this.httpClient.post(environment.baseUrl+"users", user,this.httpOptions);
   }
 
   getByEmail(email:string){
-    return this.httpClient.get(baseUrl+"users/email/"+email,this.httpOptions);
+    return this.httpClient.get(environment.baseUrl+"users/email/"+email,this.httpOptions);
   }
 
   getAll(){
-    return this.httpClient.get(baseUrl+"users",this.httpOptions);
+    return this.httpClient.get(environment.baseUrl+"users",this.httpOptions);
   }
 
   getById(id:any){
-    return this.httpClient.get(baseUrl+"users/"+id,this.httpOptions);
+    return this.httpClient.get(environment.baseUrl+"users/"+id,this.httpOptions);
   }
 
   

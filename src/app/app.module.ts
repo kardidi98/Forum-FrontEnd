@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { EditorModule } from '@tinymce/tinymce-angular';
 import { AppComponent } from './app.component';
 import { ListthemecomponentComponent } from './listthemecomponent/listthemecomponent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +22,11 @@ import { HomeComponent } from './home/home.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './posts/post/post.component';
 import { FormPostComponent } from './posts/form-post/form-post.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentComponent } from './comments/comment/comment.component';
+import { PostService } from 'src/services/post.service';
+import { CommentService } from 'src/services/comment.service';
+import { FormCommentComponent } from './comments/form-comment/form-comment.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import { FormPostComponent } from './posts/form-post/form-post.component';
     HomeComponent,
     PostsComponent,
     PostComponent,
-    FormPostComponent
+    FormPostComponent,
+    CommentsComponent,
+    CommentComponent,
+    FormCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +54,15 @@ import { FormPostComponent } from './posts/form-post/form-post.component';
     FormsModule,
     HttpClientModule,
     MatDialogModule,
-    
+    EditorModule
   ],
-  providers: [ThemeService, UserService, NotificationsService],
+  providers: [
+    ThemeService,
+    UserService,
+    NotificationsService,
+    PostService,
+    CommentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
