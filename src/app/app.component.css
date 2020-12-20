@@ -258,4 +258,53 @@ p {
     font-size: 16px;
     padding: 25px 35px;
   }
+
+  .dropbtn {
+   
+    font-size: 16px;
+    background-color: #017B93;
+    color: white;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+  }
+  
+  .dropdown-content div:hover {
+    background-color: #f1f1f1;cursor: pointer;
+    
+  }
+  
+  .dropdown:hover div {
+    display: block;
+    opacity: 1;
+    
+  }
+  
   

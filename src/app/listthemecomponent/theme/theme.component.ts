@@ -23,7 +23,6 @@ export class ThemeComponent implements OnInit {
   ngOnInit(): void {
     
     if(this.Theme){
-      console.log(this.Theme);
       
       this.serviceUser.getById(this.Theme.moderateur).subscribe((res)=>{
         this.moderator = res

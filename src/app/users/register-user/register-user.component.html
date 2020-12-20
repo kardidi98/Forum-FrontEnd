@@ -1,6 +1,9 @@
 <h1 mat-dialog-title>Formulaire d'Inscription</h1>
 <div mat-dialog-content>
+    <small [hidden] = "!showError" style="color: red;">L'e-mail que vous avez choisi existe déjà !</small>
+    
   <form #RegisterRorm="ngForm" (ngSubmit)="register(RegisterRorm.value)">
+    &nbsp;
     <div class="form-group">
         <label>Nom</label>
         <input  class="form-control" type="text" placeholder="Nom" name="nom"
@@ -20,7 +23,7 @@
         <label>Mot de passe</label>
         <input class="form-control" type="password" placeholder="******" name="password" [(ngModel)]="user.password" required />
     </div>
-    <button mat-button mat-dialog-close type="submit" class="btn btn-primary" [disabled]="!RegisterRorm.valid" style="float: right;">
+    <button mat-button  type="submit" class="btn btn-primary" [disabled]="!RegisterRorm.valid" style="float: right;">
         S'inscrire
     </button>
 </form>

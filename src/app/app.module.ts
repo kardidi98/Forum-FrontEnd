@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ThemeComponent } from './listthemecomponent/theme/theme.component';
 import { FormsModule } from '@angular/forms';
 import { ThemeService } from 'src/services/theme.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { FormThemeComponent } from './listthemecomponent/form-theme/form-theme.component';
 import { UsersComponent } from './users/users.component';
@@ -27,6 +27,8 @@ import { CommentComponent } from './comments/comment/comment.component';
 import { PostService } from 'src/services/post.service';
 import { CommentService } from 'src/services/comment.service';
 import { FormCommentComponent } from './comments/form-comment/form-comment.component';
+import { HttpinterceptorInterceptor } from 'src/interceptors/httpinterceptor.interceptor';
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { FormCommentComponent } from './comments/form-comment/form-comment.compo
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxWebstorageModule.forRoot(),
     FormsModule,
     HttpClientModule,
     MatDialogModule,
@@ -61,7 +64,8 @@ import { FormCommentComponent } from './comments/form-comment/form-comment.compo
     UserService,
     NotificationsService,
     PostService,
-    CommentService
+    CommentService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpinterceptorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

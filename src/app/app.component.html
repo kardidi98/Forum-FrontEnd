@@ -22,7 +22,7 @@
           </li>
         </ul>
         
-        <ul class="navbar-nav ml-auto ">
+        <ul *ngIf = "!isAuth; else isAuthSection" class="navbar-nav ml-auto ">
           <li clas="navbar-item">
             <button class="btn btn-primary" mat-button (click)="openLoginDialog()" >Se connecter</button>
           </li>
@@ -31,6 +31,16 @@
             <button class="btn btn-primary" mat-button (click)="openRegisterDialog()" >S'inscrire</button>
           </li>
         </ul>
+        <ng-template #isAuthSection>
+          <div class="dropdown" style="float:right;">
+            <button class="dropbtn">{{Username[0]+""+Username[1]}}</button>
+            <div class="dropdown-content">
+              <div (click)="logout()"><em class="fa fa-sign-out" style="color: teal;"></em>&nbsp;Se déconnecter</div>
+            </div>
+          </div>
+          
+        </ng-template>
+        
       </div>
     </div>
   </nav>

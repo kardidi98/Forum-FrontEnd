@@ -5,6 +5,7 @@ import { ThemeService } from 'src/services/theme.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from 'src/services/user.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-form-theme',
@@ -14,7 +15,7 @@ import { UserService } from 'src/services/user.service';
 export class FormThemeComponent implements OnInit {
 
   Theme: Theme = new Theme();
-  Moderators: any = [] ;
+  Moderators: any = [];
   @ViewChild(NgForm) editForm: NgForm;
   formTitle: string = "Ajouter un thème:";
   btnType: string = "Soumettre";
@@ -45,44 +46,34 @@ export class FormThemeComponent implements OnInit {
 
       }
     );
-    this.userService.getAll().subscribe((res)=>{
+    this.userService.getAll().subscribe((res) => {
       this.Moderators = res;
     })
   }
   submitTheme() {
-    
+
     if (this.Theme._id) {
       this.updateTheme(this.Theme)
     }
     else {
-      
+      this.themeService.add(this.Theme).subscribe(data => {
+        this.initialzeTheme();
+        this.notifyService.showSuccess("Thème ajouté avec succès!", "Succès", this.toasterConfig)
+        setTimeout(() => {
+          this.router.navigate(['themes']);
+        }, 2000)
 
-      this.themeService.getByTitle(this.Theme.titre).subscribe((res) => {
-
-        if (!res[0]) {
-
-          this.themeService.add(this.Theme).subscribe(data => {
-            this.initialzeTheme();
-            this.notifyService.showSuccess("Thème ajouté avec succès!", "Succès", this.toasterConfig)
-            setTimeout(() => {
-              this.router.navigate(['themes']);
-            }, 2000)
-
-          },
-            err => {
-              console.error(err)
-              this.notifyService.showError("Erreur dans le serveur, essayer plus tard!", "Erreur", this.toasterConfig)
-            })
-
-        }
-        else {
-          this.notifyService.showError("Le titre que vous avez choisi existe déjà!", "Erreur", this.toasterConfig)
-        }
       },
-        err => {
-          console.error(err)
-          this.notifyService.showError("Erreur dans le serveur, essayer plus tard!", "Erreur", this.toasterConfig)
+        (err: HttpErrorResponse) => {
+          if (err.status === 409) {
+            this.notifyService.showError("Le titre que vous avez choisi existe déjà!", "Erreur", this.toasterConfig)
+          }
+          else {
+            this.notifyService.showError("Erreur dans le serveur, essayer plus tard!", "Erreur", this.toasterConfig)
+
+          }
         })
+
     }
 
   }
@@ -101,13 +92,13 @@ export class FormThemeComponent implements OnInit {
       });
   }
 
-  goHome(){
+  goHome() {
     this.router.navigate(["/accueil"]);
   }
 
-  goThemes(){
+  goThemes() {
     this.router.navigate(["/themes"]);
   }
 
-  
+
 }
