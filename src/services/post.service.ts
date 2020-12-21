@@ -12,22 +12,16 @@ export class PostService {
   constructor(private httpClient: HttpClient) { }
 
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json'
-    })
-  };
-
   add(user:Post){
-    return this.httpClient.post(environment.baseUrl+"posts/5fcaadc79c06e64900a239ed", user,this.httpOptions);
+    return this.httpClient.post(environment.baseUrl+"posts/5fcaadc79c06e64900a239ed", user);
   }
 
   getByTheme(id:any){
-    return this.httpClient.get(environment.baseUrl+"posts/themes/"+id,this.httpOptions);
+    return this.httpClient.get(environment.baseUrl+"posts/themes/"+id);
   }
 
   getById(id:any){
-    return this.httpClient.get(environment.baseUrl+"posts/"+id,this.httpOptions);
+    return this.httpClient.get(environment.baseUrl+"posts/"+id);
   }
 
 

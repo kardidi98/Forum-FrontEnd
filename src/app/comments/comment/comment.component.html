@@ -15,6 +15,10 @@
     </small>
   </td>
   
-  <td class="author " >
+  <td class="author" >
     <em class="fa fa-user-circle fa-lg "></em>&nbsp;{{user.nom + " " + user.prenom}}
+  </td>
+  <td>
+    <button class="btn btn-primary" (click)="editComment('#commentForm')">Modifier</button>&nbsp;
+    <button class="btn btn-danger" >Supprimer</button>&nbsp;
   </td>

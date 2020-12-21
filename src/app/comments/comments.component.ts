@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/modeles/Post';
 import { CommentService } from 'src/services/comment.service';
 import { PostService } from 'src/services/post.service';
 import { UserService } from 'src/services/user.service';
+import { LoginUserComponent } from '../users/login-user/login-user.component';
 
 @Component({
   selector: 'app-comments',
@@ -12,15 +14,17 @@ import { UserService } from 'src/services/user.service';
 })
 export class CommentsComponent implements OnInit {
 
-  comments : any  = [];
-  post : any;
+  comments: any = [];
+  post: any;
   postUser: any;
-  showForm : boolean = false;
-  constructor(private servicePost : PostService,
-    private serviceComment : CommentService,
+  showForm: boolean = false;
+  isAuth : any = localStorage.getItem("auth");
+  constructor(private servicePost: PostService,
+    private serviceComment: CommentService,
     private serviceUser: UserService,
     private router: Router
-    , private route: ActivatedRoute) { }
+    , private route: ActivatedRoute,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.showForm = false;
@@ -28,36 +32,46 @@ export class CommentsComponent implements OnInit {
       params => {
         const id = params.get('postId');
         if (id) {
-          this.servicePost.getById(id).subscribe((data:Post) => {
+          this.servicePost.getById(id).subscribe((data: Post) => {
             this.post = data;
-            this.serviceUser.getById(data.user).subscribe((res : any) => {
+            this.serviceUser.getById(data.user).subscribe((res: any) => {
               this.postUser = res;
             });
           });
           this.serviceComment.getByPost(id).subscribe((data) => {
             this.comments = data;
           });
-          
+
         }
 
       }
     );
-    
+
   }
-  goHome(){
+  goHome() {
     this.router.navigate(["/accueil"]);
   }
 
-  goThemes(){
+  goThemes() {
     this.router.navigate(["/themes"]);
   }
-  goPosts(){
-    this.router.navigate(["/posts/themes/"+this.post.theme]);
+  goPosts() {
+    this.router.navigate(["/posts/themes/" + this.post.theme]);
   }
 
-  hideForm(target : any){
-    this.showForm = !this.showForm;
-    target.scrollIntoView();
+  hideForm(target: any) {
+    if (this.isAuth === "true") {
+      setTimeout(() => {
+        this.router.navigate(["/posts/" + this.post._id]);
+        target.scrollIntoView();
+      }, 1500);
+      this.showForm = !this.showForm;
+      
+    }
+    else{
+      this.dialog.open(LoginUserComponent);
+    }
+
   }
 
 

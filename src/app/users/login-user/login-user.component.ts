@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/modeles/User';
 import { NotificationsService } from 'src/services/notifications.service';
@@ -20,7 +21,8 @@ export class LoginUserComponent implements OnInit {
 
   constructor(private userService : UserService
     , private router: Router
-    ,private notifyService : NotificationsService) { }
+    ,private notifyService : NotificationsService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -41,6 +43,8 @@ export class LoginUserComponent implements OnInit {
        localStorage.setItem("token", response.token)
        localStorage.setItem("auth", response.auth);
        localStorage.setItem("username", userAuth.email);
+       this.showError = false;
+       this.dialog.closeAll()
       setTimeout(()=>{
         window.location.reload();
       },2000)

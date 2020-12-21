@@ -9,7 +9,7 @@ body { margin: 0;  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial,
 .table-padding{
   padding: 20px;
 }
-.btn {
+.btn-primary {
     font-size: 14px;
     font-weight: 800;
     padding: 15px 25px;

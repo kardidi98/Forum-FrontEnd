@@ -12,8 +12,9 @@
     color: #DD4B78;
 }
 .comment-form{
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.2); */
     padding: 20px;
-     background-color: white;
+     /* background-color: white; */
+     border: 1px solid #E0DEDE;
 }
 

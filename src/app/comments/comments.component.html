@@ -28,17 +28,18 @@
 
             &nbsp;
             <div class="table table-padding">
-                
+                <div style="font-size: 40px;">
+                    {{post.titre}}
+                </div>
+                &nbsp;
                 <div class=" row">
                     
                     <div class=" col-sm-3 author d-flex align-items-center">
-                        <em class="fa fa-user-circle fa-4x "></em>&nbsp;<div>{{postUser.nom + " " + postUser.prenom}}
+                        <em class="fa fa-user-circle fa-3x "></em>&nbsp;<div>{{postUser.nom + " " + postUser.prenom}}
                         </div>
                     </div>
                     <div class="col-sm-9">
-                        <div style="font-size: 20px;">
-                            {{post.titre}}
-                        </div>
+                        
                         <small class="text-muted">
                             <em class="fa fa-history"></em> &nbsp;{{post.updatedAt|date:'dd/MM/yyyy'}}
 
@@ -69,7 +70,7 @@
                         <tr>
                             <th scope="col">Commentaire </th>
                             <th scope="col">Auteur</th>
-
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -84,12 +85,12 @@
                             <tr>
                                 <th scope="col">Commentaire</th>
                                 <th scope="col">Auteur</th>
-
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="3">
                                     <h2 class="container  d-flex justify-content-center">
                                         Aucun résultat
                                     </h2>
@@ -100,14 +101,14 @@
 
                 </ng-template>
                 
-                <div  class="rounded comment-form" [hidden] = "!showForm">
+                <div   class="rounded comment-form" >
                     <div app-form-comment>
                      
                     </div>
                 </div>
                 
             </div>
-            <div #comment_form></div>
+            <div id="commentForm" #comment_form></div>
         </div>
     </div>
 </div>

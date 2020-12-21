@@ -4,8 +4,7 @@ import { Theme } from 'src/modeles/Theme';
 import { environment } from '../environments/environment';
 
 import { HttpHeaders } from '@angular/common/http';
-
-
+import { Subject } from 'rxjs';
 
 
 @Injectable({
@@ -13,39 +12,43 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class ThemeService {
 
-   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json'
-    })
-  };
+
 
   Themes: Array<Theme> = new Array<Theme>();
 
-  
-  constructor(private httpClient: HttpClient) {}
+  themesSubject = new Subject<any>();
 
-  add(theme: Theme){
-    return this.httpClient.post(environment.baseUrl+"themes",theme, this.httpOptions); 
-  }
+  constructor(private httpClient: HttpClient) { }
 
-  update(theme: Theme){
-    return this.httpClient.put(environment.baseUrl+"themes/"+theme._id,theme, this.httpOptions); 
+  add(theme: Theme) {
+    return this.httpClient.post(environment.baseUrl + "themes", theme);
   }
 
-  get(id: any){
-    return  this.httpClient.get(environment.baseUrl+"themes/"+id, this.httpOptions);
+  update(theme: Theme) {
+    return this.httpClient.put(environment.baseUrl + "themes/" + theme._id, theme);
   }
-  getByKeyword(keyword: any){
-    return this.httpClient.get(environment.baseUrl+"themes/titre/"+keyword,this.httpOptions)
-    
+
+  get(id: any) {
+    return this.httpClient.get(environment.baseUrl + "themes/" + id)
   }
-  getByTitle(titre: any){
-    return  this.httpClient.get(environment.baseUrl+"themes/titre/"+titre, this.httpOptions);
+  getByKeyword(keyword: any) {
+    return this.httpClient.get(environment.baseUrl + "themes/titre/" + keyword)
+
   }
-  getAll(){
-    return  this.httpClient.get(environment.baseUrl+"themes", this.httpOptions);
-    
-  } 
+  getByTitle(titre: any) {
+    return this.httpClient.get(environment.baseUrl + "themes/titre/" + titre);
+  }
+  getAll() {
+    this.httpClient.get(environment.baseUrl + "themes").subscribe((themes: any) => {
+      this.Themes = themes;
+      this.emitThemesSubject();;
+    });
+  }
+
+
+  emitThemesSubject() {
+    this.themesSubject.next(this.Themes.slice());
+  }
 
 
 }

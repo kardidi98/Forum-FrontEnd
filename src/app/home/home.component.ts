@@ -9,6 +9,7 @@ import { LoginUserComponent } from '../users/login-user/login-user.component';
 })
 export class HomeComponent implements OnInit {
 
+  isAuth:any = localStorage.getItem("auth")
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {

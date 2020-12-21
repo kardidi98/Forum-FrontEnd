@@ -29,6 +29,7 @@ import { CommentService } from 'src/services/comment.service';
 import { FormCommentComponent } from './comments/form-comment/form-comment.component';
 import { HttpinterceptorInterceptor } from 'src/interceptors/httpinterceptor.interceptor';
 import {NgxWebstorageModule} from 'ngx-webstorage';
+import { AuthGuardService } from 'src/services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
     NotificationsService,
     PostService,
     CommentService,
+    AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpinterceptorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
