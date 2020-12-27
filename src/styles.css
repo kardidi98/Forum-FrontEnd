@@ -2,9 +2,13 @@
 
 html, body { height: 100%;scroll-behavior:smooth;}
 body { margin: 0;  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+table{
+  table-layout: fixed;
+}
 .table{
   border: 1px solid #DEDEDF;
   border-radius: 3px;
+  
 }
 .table-padding{
   padding: 20px;

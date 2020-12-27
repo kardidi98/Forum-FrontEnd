@@ -15,6 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class FormThemeComponent implements OnInit {
 
   Theme: Theme = new Theme();
+  forumId:any;
   Moderators: any = [];
   @ViewChild(NgForm) editForm: NgForm;
   formTitle: string = "Ajouter un thème:";
@@ -36,12 +37,16 @@ export class FormThemeComponent implements OnInit {
     this.route.paramMap.subscribe(
       params => {
         const id = params.get('themeId');
+        const forumId = params.get('ForumId');
         if (id) {
           this.themeService.get(id).subscribe((data: Theme) => {
             this.Theme = data;
             this.formTitle = "Modifier le thème:";
             this.btnType = "Mettre A Jour"
           });
+        }
+        if(forumId){
+          this.forumId = forumId
         }
 
       }
@@ -51,7 +56,7 @@ export class FormThemeComponent implements OnInit {
     })
   }
   submitTheme() {
-
+    this.Theme.forum = this.forumId;
     if (this.Theme._id) {
       this.updateTheme(this.Theme)
     }
@@ -60,7 +65,7 @@ export class FormThemeComponent implements OnInit {
         this.initialzeTheme();
         this.notifyService.showSuccess("Thème ajouté avec succès!", "Succès", this.toasterConfig)
         setTimeout(() => {
-          this.router.navigate(['themes']);
+          this.router.navigate(["/themes/forums/"+this.forumId]);
         }, 2000)
 
       },
@@ -83,7 +88,7 @@ export class FormThemeComponent implements OnInit {
       this.initialzeTheme();
       this.notifyService.showSuccess("Thème mis à jour avec succès!", "Succès", this.toasterConfig)
       setTimeout(() => {
-        this.router.navigate(['themes']);
+        this.router.navigate(["/themes/forums/"+this.forumId]);
       }, 2000)
     },
       err => {
@@ -97,7 +102,7 @@ export class FormThemeComponent implements OnInit {
   }
 
   goThemes() {
-    this.router.navigate(["/themes"]);
+    this.router.navigate(["/themes/forums/"+this.forumId]);
   }
 
 

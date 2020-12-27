@@ -1,0 +1,13 @@
+.theme-title{
+    font-size: 30px;
+    font-weight: 500;
+    color: #00657B;
+    text-transform: uppercase;
+}
+.theme-title:hover{
+    cursor: pointer;
+}
+.moderateur{
+    font-weight: 500;
+    color: #DD4B78;
+}

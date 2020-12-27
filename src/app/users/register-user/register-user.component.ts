@@ -29,8 +29,8 @@ export class RegisterUserComponent implements OnInit {
   initialzeUser(){
     this.editForm.reset();
   }
-  register(values: User){
-   this.userService.add(values).subscribe(res=>{
+  register(){
+   this.userService.add(this.user).subscribe(res=>{
           this.initialzeUser();
           this.notifyService.showSuccess("Inscription réussie! connectez-vous maintenant.", "Succès", this.toasterConfig)
           this.showError = false;

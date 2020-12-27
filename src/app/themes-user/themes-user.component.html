@@ -1,0 +1,66 @@
+<!-- Page Header -->
+<section class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>THEMES</h1>
+            <hr />
+            <small class="subheading">Liste des thèmes</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container d-flex align-items-center">
+    <div class="path" (click) = "goHome()"><em class="fa fa-home"></em>&nbsp;Accueil</div>&nbsp;
+    <em class="fa fa-angle-right"></em>&nbsp;
+    <div>Thèmes</div>
+  </section>
+  <div class="container mt-10">
+    <div class="row">
+      <div class="col-lg-12 col-md-10 mx-auto">
+            
+              <table  class="table  table-striped  tables" *ngIf="Themes.length>0; else elseThemes">
+                <caption>Liste des Thémes</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Thème</th>
+                    <th scope="col">Modérateur</th>
+                    <th scope="col">Total des publications</th>
+                  </tr>
+                </thead>
+                <tbody class="theme-preview">
+                  <tr *ngFor="let t of Themes; let i = index" app-theme-user [Theme]="t">
+                  </tr>
+                </tbody>
+              </table>
+              <ng-template #elseThemes>
+                <table class="table  table-striped ">
+                  <caption>Liste des Thémes</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Thème</th>
+                      <th scope="col">Modérateur</th>
+                      <th scope="col">Total des publications</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr >
+                      <td colspan="3">
+                        <h2 class="container  d-flex justify-content-center">
+                          Aucun résultat
+                        </h2>
+                      </td>
+    
+                    </tr>
+                  </tbody>
+                </table>
+    
+              </ng-template>
+            
+  
+      </div>
+    </div>
+  </div>

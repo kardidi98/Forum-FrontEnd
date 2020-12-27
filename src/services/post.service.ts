@@ -9,11 +9,12 @@ import { environment } from '../environments/environment';
 export class PostService {
 
   post : Post;
+  userId:any = localStorage.getItem("id");
   constructor(private httpClient: HttpClient) { }
 
 
   add(user:Post){
-    return this.httpClient.post(environment.baseUrl+"posts/5fcaadc79c06e64900a239ed", user);
+    return this.httpClient.post(environment.baseUrl+"posts/"+this.userId, user);
   }
 
   getByTheme(id:any){

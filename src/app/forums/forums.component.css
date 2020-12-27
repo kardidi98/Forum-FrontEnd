@@ -1,0 +1,47 @@
+
+.mt-10{
+    margin-top: 10px;
+}
+
+.forum-preview > a {
+  color: #212529;
+}
+
+.forum-preview > a:focus, .forum-preview > a:hover {
+  text-decoration: none;
+  color: #0085A1;
+}
+
+.forum-preview > a > .forum-title {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.forum-preview > a > .forum-subtitle {
+  font-weight: 300;
+  margin: 0 0 10px;
+}
+
+.forum-preview > .forum-meta {
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+  color: #868e96;
+}
+
+.forum-preview > .forum-meta > a {
+  text-decoration: none;
+  color: #212529;
+}
+
+.forum-preview > .forum-meta > a:focus, .forum-preview > .forum-meta > a:hover {
+  text-decoration: underline;
+  color: #0085A1;
+}
+
+@media only screen and (min-width: 768px) {
+  .forum-preview > a > .forum-title {
+    font-size: 36px;
+  }
+}

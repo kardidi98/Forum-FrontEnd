@@ -40,7 +40,7 @@ export class ThemeComponent implements OnInit {
   }
 
   linkToPosts(){
-    this.router.navigate(['posts/themes/'+this.Theme._id]);
+    this.router.navigate(['/admin/posts/themes/'+this.Theme._id]);
   }
 
   getUser(){

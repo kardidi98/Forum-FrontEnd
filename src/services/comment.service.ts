@@ -9,12 +9,13 @@ import { environment } from '../environments/environment';
 export class CommentService {
 
   comment : Comment;
+  userId:any = localStorage.getItem("id");
   constructor(private httpClient: HttpClient) { }
 
 
 
   add(postId:any, comment: Comment){
-    return this.httpClient.post(environment.baseUrl+"comments/"+postId+"/5fcaadc79c06e64900a239ed", comment);
+    return this.httpClient.post(environment.baseUrl+"comments/"+postId+"/"+this.userId, comment);
   }
 
   getByPost(id:any){

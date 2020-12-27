@@ -15,6 +15,6 @@
 </td>
 <td><em class="fa fa-comments fa-lg "></em>&nbsp;{{posts.length}}</td>
 <td>
-    <button class="btn btn-primary" (click)="choisirTheme()">Editer</button>&nbsp;
+    <button class="btn btn-primary" [disabled]="posts.length>0" (click)="choisirTheme()">Editer</button>&nbsp;
     
 </td>

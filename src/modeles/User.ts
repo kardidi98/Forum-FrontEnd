@@ -5,7 +5,7 @@ export class User {
     prenom : string;
     email : string;
     password : string;
-    
+    isAdmin: string = 'false'
 
     constructor() { }
   

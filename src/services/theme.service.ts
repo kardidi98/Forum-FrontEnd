@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Theme } from 'src/modeles/Theme';
 import { environment } from '../environments/environment';
-
-import { HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 
@@ -43,6 +41,10 @@ export class ThemeService {
       this.Themes = themes;
       this.emitThemesSubject();;
     });
+  }
+
+  getByForum(id:any) {
+    return this.httpClient.get(environment.baseUrl + "themes/forums/"+id)
   }
 
 

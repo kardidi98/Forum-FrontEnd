@@ -6,11 +6,11 @@ import { NotificationsService } from 'src/services/notifications.service';
 import { PostService } from 'src/services/post.service';
 
 @Component({
-  selector: 'app-form-post',
-  templateUrl: './form-post.component.html',
-  styleUrls: ['./form-post.component.css']
+  selector: 'app-form-post-user',
+  templateUrl: './form-post-user.component.html',
+  styleUrls: ['./form-post-user.component.css']
 })
-export class FormPostComponent implements OnInit {
+export class FormPostUserComponent implements OnInit {
 
   Post: Post = new Post;
   Moderators: any = [];

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/modeles/Post';
 import { User } from 'src/modeles/User';
+import { ForumService } from 'src/services/forum.service';
 import { PostService } from 'src/services/post.service';
+import { ThemeService } from 'src/services/theme.service';
 import { UserService } from 'src/services/user.service';
 
 @Component({
@@ -15,8 +17,9 @@ export class PostsComponent implements OnInit {
   posts: any = [];
   users : any = [];
   themeId:any;
-  constructor(private servicePost: PostService,
-    private serviceUser : UserService,
+  forumId:any;
+  constructor(private servicePost: PostService,private serviceTheme:ThemeService,
+    private serviceUser : UserService,private serviceForum:ForumService,
      private router: Router
      , private route: ActivatedRoute) {
     
@@ -31,9 +34,15 @@ export class PostsComponent implements OnInit {
           this.servicePost.getByTheme(id).subscribe((data) => {
             this.posts = data;
             
-            
-            
           });
+          this.serviceTheme.get(id).subscribe((res:any)=>{
+              if(res){
+                this.serviceForum.getById(res.forum).subscribe((forum:any)=>{
+                  this.forumId = forum._id;
+                })
+              }
+          })
+          
         }
 
       }
@@ -51,11 +60,9 @@ export class PostsComponent implements OnInit {
   }
 
   goThemes(){
-    this.router.navigate(["/themes"]);
+    this.router.navigate(["/admin/themes/forums/"+this.forumId]);
   }
 
-  NewPost(){
-    this.router.navigate(["/addPost/themes/"+this.themeId]);
-  }
+  
 
 }

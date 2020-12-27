@@ -42,6 +42,8 @@ export class LoginUserComponent implements OnInit {
       this.notifyService.showSuccess("Connexion réussie!", "Succès", this.toasterConfig);
        localStorage.setItem("token", response.token)
        localStorage.setItem("auth", response.auth);
+       localStorage.setItem("id", response.id);
+       localStorage.setItem("admin", response.isAdmin);
        localStorage.setItem("username", userAuth.email);
        this.showError = false;
        this.dialog.closeAll()

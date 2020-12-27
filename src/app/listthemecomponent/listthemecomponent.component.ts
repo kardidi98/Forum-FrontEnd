@@ -1,7 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
-import { Theme } from 'src/modeles/Theme';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ThemeService } from 'src/services/theme.service';
 
 @Component({
@@ -9,31 +7,37 @@ import { ThemeService } from 'src/services/theme.service';
   templateUrl: './listthemecomponent.component.html',
   styleUrls: ['./listthemecomponent.component.css']
 })
-export class ListthemecomponentComponent implements OnInit, OnDestroy {
+export class ListthemecomponentComponent implements OnInit {
   Themes: any = [];
+  ForumId:any;
   keyword = "";
-  themeSubscription : Subscription;
   
-  constructor(private router : Router,private  themeService: ThemeService) { }
+  constructor(private router : Router,private  themeService: ThemeService,
+    private route:ActivatedRoute) { }
 
-  ngOnDestroy(): void {
-    this.themeSubscription.unsubscribe();
-  }
+  
 
   ngOnInit(): void {
 
-    this.themeService.getAll();
-    this.themeSubscription = this.themeService.themesSubject.subscribe((res:any)=>{
-      this.Themes = res;
+    this.route.paramMap.subscribe((params)=>{
+      const forumId = params.get("idForum");
+      if(forumId){
+        this.ForumId = forumId;
+        this.themeService.getByForum(forumId).subscribe((res:any)=>{
+          this.Themes = res;
+        })
+      }
     })
-    this.themeService.emitThemesSubject();
-    
-  }
+}
   chercherParMotCle(motCle:any){
     this.keyword = "";
   }
   goHome(){
     this.router.navigate(["/accueil"]);
+  }
+
+  addTheme(){
+    this.router.navigate(["/addTheme/forums/"+this.ForumId]);
   }
 
  

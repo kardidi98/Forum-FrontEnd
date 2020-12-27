@@ -1,0 +1,9 @@
+.forum-title{
+    font-size: 30px;
+    font-weight: 500;
+    color: #00657B;
+    text-transform: uppercase;
+}
+.forum-title:hover{
+    cursor: pointer;
+}

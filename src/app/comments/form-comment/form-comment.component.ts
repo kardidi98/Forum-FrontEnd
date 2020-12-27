@@ -70,8 +70,11 @@ export class FormCommentComponent implements OnInit {
   updateComment(){
     this.serviceComment.update(this.Comment).subscribe((res)=>{
       this.notifyService.showSuccess("Commentaire mis à jour avec succès!", "Succès", this.toasterConfig)
-            setTimeout(() => {
+        console.log(this.postId);
+        
+      setTimeout(() => {
               window.location.reload();
+              
         }, 3000)
     })
   }

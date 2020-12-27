@@ -1,0 +1,16 @@
+<td>
+    <div class="theme-preview" (click)="linkToPosts()">
+            <div class="theme-title">
+                {{Theme.titre}}
+            </div>
+            
+        </div>
+    <div class="theme-subtitle" [innerHTML] = "Theme.description">
+        
+    </div>
+
+</td>
+<td class="moderateur">
+    <em class="fa fa-user-circle fa-lg "></em>&nbsp;{{moderator.nom + " " + moderator.prenom}}
+</td>
+<td><em class="fa fa-comments fa-lg "></em>&nbsp;{{posts.length}}</td>
