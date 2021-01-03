@@ -18,7 +18,13 @@
   <td class="author" >
     <em class="fa fa-user-circle fa-lg "></em>&nbsp;{{user.nom + " " + user.prenom}}
   </td>
-  <td>
-    
-    <button class="btn btn-danger" (click)="deleteComment()">Supprimer</button>&nbsp;
+  <td >
+    <div *ngIf="userAuthId === comment.user; else otherUser">
+      <button class="btn btn-primary" (click)="editComment('#commentForm')">Modifier</button>&nbsp;
+      <button class="btn btn-danger" (click)="deleteComment()">Supprimer</button>&nbsp;
+    </div>
+    <ng-template #otherUser>
+          
+    </ng-template>
   </td>
+

@@ -26,6 +26,8 @@ export class ForumUserComponent implements OnInit {
   }
 
   linkToThemes() {
+    localStorage.removeItem("idForum");
+    localStorage.setItem("idForum", this.Forum._id);
     this.router.navigate(["/themes/forums/" + this.Forum._id])
   }
 

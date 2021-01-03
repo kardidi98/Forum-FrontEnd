@@ -65,7 +65,7 @@ export class FormThemeComponent implements OnInit {
         this.initialzeTheme();
         this.notifyService.showSuccess("Thème ajouté avec succès!", "Succès", this.toasterConfig)
         setTimeout(() => {
-          this.router.navigate(["/themes/forums/"+this.forumId]);
+          this.router.navigate(["/admin/themes/forums/"+this.forumId]);
         }, 2000)
 
       },
@@ -102,7 +102,7 @@ export class FormThemeComponent implements OnInit {
   }
 
   goThemes() {
-    this.router.navigate(["/themes/forums/"+this.forumId]);
+    this.router.navigate(["/admin/themes/forums/"+this.forumId]);
   }
 
 

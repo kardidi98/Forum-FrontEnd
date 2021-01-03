@@ -28,4 +28,9 @@ export class CommentService {
   update(comment:any){
     return this.httpClient.put(environment.baseUrl+"comments/"+comment._id,comment);
   }
+
+  delete(id:any){
+    return this.httpClient.delete(environment.baseUrl+"comments/"+id);
+  }
+
 }

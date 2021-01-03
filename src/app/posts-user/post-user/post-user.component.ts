@@ -4,7 +4,7 @@ import { CommentService } from 'src/services/comment.service';
 import { UserService } from 'src/services/user.service';
 
 @Component({
-  selector: 'app-post-user',
+  selector: '[app-post-user]',
   templateUrl: './post-user.component.html',
   styleUrls: ['./post-user.component.css']
 })
@@ -28,6 +28,7 @@ export class PostUserComponent implements OnInit {
     }
   }
   getPost(){
+    
     this.router.navigate(["/posts/"+this.post._id])
   }
 

@@ -29,7 +29,8 @@ export class PostComponent implements OnInit {
     }
   }
   getPost(){
-    this.router.navigate(["/posts/"+this.post._id])
+    
+    this.router.navigate(["/admin/posts/"+this.post._id])
   }
 
 }

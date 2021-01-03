@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminGuardService } from 'src/services/admin-guard.service';
 import { AuthGuardService } from 'src/services/auth-guard.service';
+import { CommentsUserComponent } from './comments-user/comments-user.component';
 import { CommentsComponent } from './comments/comments.component';
 import { FormForumComponent } from './forums/form-forum/form-forum.component';
 import { HomeComponent } from './home/home.component';
@@ -25,8 +26,9 @@ const routes: Routes = [
   {path:"posts/themes/:idTheme", component: PostsUserComponent},
   {path:"admin/posts/themes/:idTheme", component: PostsComponent, canActivate:[AdminGuardService]},
   {path:"addPost/themes/:idtheme", component: FormPostUserComponent, canActivate : [AuthGuardService]},
-  {path:"posts/:postId", component: CommentsComponent},
-  {path:"posts/:postId/comments/:commentId", component: CommentsComponent, canActivate : [AuthGuardService]},
+  {path:"admin/posts/:postId", component: CommentsComponent, canActivate:[AdminGuardService]},
+  {path:"posts/:postId", component: CommentsUserComponent},
+  {path:"posts/:postId/comments/:commentId", component: CommentsUserComponent, canActivate : [AuthGuardService]},
   
   {path: "", redirectTo:"/accueil", pathMatch:"full"}
 ];

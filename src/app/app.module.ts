@@ -25,7 +25,6 @@ import { CommentsComponent } from './comments/comments.component';
 import { CommentComponent } from './comments/comment/comment.component';
 import { PostService } from 'src/services/post.service';
 import { CommentService } from 'src/services/comment.service';
-import { FormCommentComponent } from './comments/form-comment/form-comment.component';
 import { HttpinterceptorInterceptor } from 'src/interceptors/httpinterceptor.interceptor';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { AuthGuardService } from 'src/services/auth-guard.service';
@@ -40,6 +39,9 @@ import { ForumUserComponent } from './forums-user/forum-user/forum-user.componen
 import { PostsUserComponent } from './posts-user/posts-user.component';
 import { PostUserComponent } from './posts-user/post-user/post-user.component';
 import { FormPostUserComponent } from './posts-user/form-post-user/form-post-user.component';
+import { CommentsUserComponent } from './comments-user/comments-user.component';
+import { CommentUserComponent } from './comments-user/comment-user/comment-user.component';
+import { FormCommentUserComponent } from './comments-user/form-comment-user/form-comment-user.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,6 @@ import { FormPostUserComponent } from './posts-user/form-post-user/form-post-use
     PostComponent,
     CommentsComponent,
     CommentComponent,
-    FormCommentComponent,
     ForumsComponent,
     ForumComponent,
     FormForumComponent,
@@ -66,7 +67,10 @@ import { FormPostUserComponent } from './posts-user/form-post-user/form-post-use
     ForumUserComponent,
     PostsUserComponent,
     PostUserComponent,
-    FormPostUserComponent
+    FormPostUserComponent,
+    CommentsUserComponent,
+    CommentUserComponent,
+    FormCommentUserComponent
   ],
   imports: [
     BrowserModule,

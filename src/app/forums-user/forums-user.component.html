@@ -1,5 +1,5 @@
 
-    <table class="table  table-striped  tables" *ngIf="Forums.length>0; else elseForums">
+    <table class="table table-striped tables" *ngIf="Forums.length>0; else elseForums">
       <caption>Liste des Forums</caption>
       <thead>
         <tr>
@@ -13,7 +13,7 @@
       </tbody>
     </table>
     <ng-template #elseForums>
-      <table class="table  table-striped ">
+      <table class="table table-responsive table-striped ">
         <caption>Liste des Forums</caption>
         <thead>
           <tr>

@@ -52,13 +52,15 @@
                 &nbsp;
                 <hr />
                 <div class="container row align-items-center justify-content-center">
-                    <div class="mt-10 col-sm-12 col-lg-12 text-muted">
+                    <div class="mt-10 col-sm-12 col-lg-9 text-muted">
                         <em class="fa fa-comments fa-lg "></em>
                         &nbsp;
                         Total: {{comments.length}}
                     </div>
                     
-                    
+                    <button class="mt-10 col-sm-12 col-lg-3 btn btn-primary" (click)="hideForm(comment_form)">
+                        + Nouveau Commentaire
+                    </button>
                 </div>
                
                 &nbsp;
@@ -72,7 +74,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let c of comments; let i = index" app-comment [comment]="c">
+                        <tr *ngFor="let c of comments; let i = index" app-comment-user [comment]="c">
                         </tr>
                     </tbody>
                 </table>
@@ -98,10 +100,14 @@
                     </table>
 
                 </ng-template>
-                
-                
+                <div   class="rounded comment-form" >
+                    <div app-form-comment-user>
+                     
+                    </div>
+                </div>
                 
             </div>
+            <div id="commentForm" #comment_form></div>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comment } from 'src/modeles/Comment';
@@ -6,11 +6,11 @@ import { CommentService } from 'src/services/comment.service';
 import { NotificationsService } from 'src/services/notifications.service';
 
 @Component({
-  selector: '[app-form-comment]',
-  templateUrl: './form-comment.component.html',
-  styleUrls: ['./form-comment.component.css']
+  selector: '[app-form-comment-user]',
+  templateUrl: './form-comment-user.component.html',
+  styleUrls: ['./form-comment-user.component.css']
 })
-export class FormCommentComponent implements OnInit {
+export class FormCommentUserComponent implements OnInit {
 
   Comment : Comment = new Comment();
   btnType: string = "Soumettre";

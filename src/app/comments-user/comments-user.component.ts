@@ -8,11 +8,11 @@ import { UserService } from 'src/services/user.service';
 import { LoginUserComponent } from '../users/login-user/login-user.component';
 
 @Component({
-  selector: 'app-comments',
-  templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.css']
+  selector: 'app-comments-user',
+  templateUrl: './comments-user.component.html',
+  styleUrls: ['./comments-user.component.css']
 })
-export class CommentsComponent implements OnInit {
+export class CommentsUserComponent implements OnInit {
 
   comments: any = [];
   idForum:any = localStorage.getItem("idForum");
@@ -54,11 +54,10 @@ export class CommentsComponent implements OnInit {
   }
 
   goThemes() {
-    
-     this.router.navigate(["/admin/themes/forums/"+this.idForum]);
+    this.router.navigate(["/themes/forums/"+this.idForum]);
   }
   goPosts() {
-    this.router.navigate(["/admin/posts/themes/" + this.post.theme]);
+    this.router.navigate(["/posts/themes/" + this.post.theme]);
   }
 
   hideForm(target: any) {
@@ -75,6 +74,5 @@ export class CommentsComponent implements OnInit {
     }
 
   }
-
 
 }
