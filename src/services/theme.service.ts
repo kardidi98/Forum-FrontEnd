@@ -29,6 +29,10 @@ export class ThemeService {
   get(id: any) {
     return this.httpClient.get(environment.baseUrl + "themes/" + id)
   }
+
+  delete(theme:Theme){
+    return this.httpClient.delete(environment.baseUrl+"themes/" + theme._id)
+  }
   getByKeyword(keyword: any) {
     return this.httpClient.get(environment.baseUrl + "themes/titre/" + keyword)
 

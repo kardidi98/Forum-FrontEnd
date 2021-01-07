@@ -15,7 +15,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class FormThemeComponent implements OnInit {
 
   Theme: Theme = new Theme();
-  forumId:any;
+  forumId:any = localStorage.getItem("idForum");
   Moderators: any = [];
   @ViewChild(NgForm) editForm: NgForm;
   formTitle: string = "Ajouter un thème:";
@@ -88,7 +88,7 @@ export class FormThemeComponent implements OnInit {
       this.initialzeTheme();
       this.notifyService.showSuccess("Thème mis à jour avec succès!", "Succès", this.toasterConfig)
       setTimeout(() => {
-        this.router.navigate(["/themes/forums/"+this.forumId]);
+        this.router.navigate(["/admin/themes/forums/"+this.forumId]);
       }, 2000)
     },
       err => {

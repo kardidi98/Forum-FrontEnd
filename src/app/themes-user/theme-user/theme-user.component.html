@@ -14,3 +14,13 @@
     <em class="fa fa-user-circle fa-lg "></em>&nbsp;{{moderator.nom + " " + moderator.prenom}}
 </td>
 <td><em class="fa fa-comments fa-lg "></em>&nbsp;{{posts.length}}</td>
+
+<td >
+    <div *ngIf="userId === moderator._id; else notModerator">
+      
+      <button class="btn btn-danger" (click)="deleteTheme()">Supprimer</button>&nbsp;
+    </div>
+    <ng-template #notModerator>
+          
+    </ng-template>
+  </td>

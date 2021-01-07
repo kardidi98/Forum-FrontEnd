@@ -37,7 +37,7 @@ export class ListthemecomponentComponent implements OnInit {
   }
 
   addTheme(){
-    this.router.navigate(["/addTheme/forums/"+this.ForumId]);
+    this.router.navigate(["/admin/addTheme/forums/"+this.ForumId]);
   }
 
  

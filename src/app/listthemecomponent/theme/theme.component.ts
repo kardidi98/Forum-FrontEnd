@@ -36,7 +36,7 @@ export class ThemeComponent implements OnInit {
   }
 
   choisirTheme() {
-    this.router.navigate(['themes/'+this.Theme._id]);
+    this.router.navigate(['/admin/themes/'+this.Theme._id]);
   }
 
   linkToPosts(){
