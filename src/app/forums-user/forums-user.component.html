@@ -1,5 +1,21 @@
-
-    <table class="table table-striped tables" *ngIf="Forums.length>0; else elseForums">
+<div class="table-responsive">
+  <table id="forumTable" class="table table-striped tables" *ngIf="Forums.length>0; else elseForums">
+    <caption>Liste des Forums</caption>
+    <thead>
+      <tr>
+        <th scope="col">Forum</th>
+        <th scope="col">Thèmes</th>
+      </tr>
+    </thead>
+    <tbody class="theme-preview">
+      <tr *ngFor="let f of Forums" app-forum-user [Forum]="f">
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #elseForums>
+  <div class="table-responsive">
+    <table class="table table-responsive table-striped ">
       <caption>Liste des Forums</caption>
       <thead>
         <tr>
@@ -7,30 +23,16 @@
           <th scope="col">Thèmes</th>
         </tr>
       </thead>
-      <tbody class="theme-preview">
-        <tr *ngFor="let f of Forums" app-forum-user [Forum]="f">
+      <tbody>
+        <tr>
+          <td colspan="2">
+            <h2 class="container  d-flex justify-content-center">
+              Aucun résultat
+            </h2>
+          </td>
+
         </tr>
       </tbody>
     </table>
-    <ng-template #elseForums>
-      <table class="table table-responsive table-striped ">
-        <caption>Liste des Forums</caption>
-        <thead>
-          <tr>
-            <th scope="col">Forum</th>
-            <th scope="col">Thèmes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
-            <td colspan="2">
-              <h2 class="container  d-flex justify-content-center">
-                Aucun résultat
-              </h2>
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-
-    </ng-template>
+  </div>
+</ng-template>

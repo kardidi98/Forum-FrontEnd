@@ -33,13 +33,13 @@
                 </div>
                 &nbsp;
                 <div class=" row">
-                    
+
                     <div class=" col-sm-3 author d-flex align-items-center">
                         <em class="fa fa-user-circle fa-3x "></em>&nbsp;<div>{{postUser.nom + " " + postUser.prenom}}
                         </div>
                     </div>
                     <div class="col-sm-9">
-                        
+
                         <small class="text-muted">
                             <em class="fa fa-history"></em> &nbsp;{{post.updatedAt|date:'dd/MM/yyyy'}}
 
@@ -57,55 +57,58 @@
                         &nbsp;
                         Total: {{comments.length}}
                     </div>
-                    
+
                     <button class="mt-10 col-sm-12 col-lg-3 btn btn-primary" (click)="hideForm(comment_form)">
                         + Nouveau Commentaire
                     </button>
                 </div>
-               
+
                 &nbsp;
-                <table class="table  table-striped " *ngIf="comments.length > 0; else elseComments">
-                    <caption>Liste des Commentaires</caption>
-                    <thead>
-                        <tr>
-                            <th scope="col">Commentaire </th>
-                            <th scope="col">Auteur</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let c of comments; let i = index" app-comment-user [comment]="c">
-                        </tr>
-                    </tbody>
-                </table>
-                <ng-template #elseComments>
-                    <table class="table  table-striped ">
-                        <caption>Liste des Publications</caption>
+                <div class="table-responsive">
+                    <table class="table  table-striped " *ngIf="comments.length > 0; else elseComments">
+                        <caption>Liste des Commentaires</caption>
                         <thead>
                             <tr>
-                                <th scope="col">Commentaire</th>
+                                <th scope="col">Commentaire </th>
                                 <th scope="col">Auteur</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td colspan="3">
-                                    <h2 class="container  d-flex justify-content-center">
-                                        Aucun résultat
-                                    </h2>
-                                </td>
+                            <tr *ngFor="let c of comments; let i = index" app-comment-user [comment]="c">
                             </tr>
                         </tbody>
                     </table>
-
+                </div>
+                <ng-template #elseComments>
+                    <div class="table-responsive">
+                        <table class="table  table-striped ">
+                            <caption>Liste des Publications</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Commentaire</th>
+                                    <th scope="col">Auteur</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3">
+                                        <h2 class="container  d-flex justify-content-center">
+                                            Aucun résultat
+                                        </h2>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </ng-template>
-                <div   class="rounded comment-form" >
+                <div class="rounded comment-form">
                     <div app-form-comment-user>
-                     
+
                     </div>
                 </div>
-                
+
             </div>
             <div id="commentForm" #comment_form></div>
         </div>

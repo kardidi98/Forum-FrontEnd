@@ -4,6 +4,7 @@ import { AdminGuardService } from 'src/services/admin-guard.service';
 import { AuthGuardService } from 'src/services/auth-guard.service';
 import { CommentsUserComponent } from './comments-user/comments-user.component';
 import { CommentsComponent } from './comments/comments.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { FormForumComponent } from './forums/form-forum/form-forum.component';
 import { HomeComponent } from './home/home.component';
 import { FormThemeComponent } from './listthemecomponent/form-theme/form-theme.component';

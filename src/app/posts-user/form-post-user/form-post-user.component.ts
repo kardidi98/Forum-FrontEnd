@@ -18,6 +18,7 @@ export class FormPostUserComponent implements OnInit {
   theme: any;
   formTitle: string = "Ajouter une publication:";
   btnType: string = "Soumettre";
+  idForum:any = localStorage.getItem("idForum");
 
   toasterConfig = { duration: 1000, closeButton: true, positionClass: "toast-top-right" };
 
@@ -59,7 +60,7 @@ export class FormPostUserComponent implements OnInit {
   }
 
   goThemes(){
-    this.router.navigate(["/themes"]);
+    this.router.navigate(["/themes/forums/"+this.idForum]);
   }
   goPosts(){
     this.router.navigate(["/posts/themes/"+this.theme]);

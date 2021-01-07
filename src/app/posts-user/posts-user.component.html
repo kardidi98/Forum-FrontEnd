@@ -1,43 +1,44 @@
 <!-- Page Header -->
 <section class="masthead">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>PUBLICATIONS</h1>
-            <hr />
-            <span class="subheading">Liste des publications</span>
-          </div>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>PUBLICATIONS</h1>
+          <hr />
+          <span class="subheading">Liste des publications</span>
         </div>
       </div>
     </div>
-  </section>
-  <section class="container d-flex align-items-center">
-    <div class="path" (click)="goHome()"><em class="fa fa-home"></em>&nbsp;Accueil</div>&nbsp;
-    <em class="fa fa-angle-right"></em>&nbsp;
-    <div class="path" (click)="goThemes()">Thèmes</div>&nbsp;
-    <em class="fa fa-angle-right"></em>&nbsp;
-    <div>Posts</div>
-  </section>
-  <div class="container mt-50">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 mx-auto" >
-        <div class="d-flex justify-content-end">
-             
-          <button class="btn btn-primary" (click) = "NewPost()">
-            + Nouvelle Publication
-          </button>
-        </div>
-        &nbsp;
-        <table class="table  table-striped "  *ngIf="posts.length > 0; else elsePosts">
+  </div>
+</section>
+<section class="container d-flex align-items-center">
+  <div class="path" (click)="goHome()"><em class="fa fa-home"></em>&nbsp;Accueil</div>&nbsp;
+  <em class="fa fa-angle-right"></em>&nbsp;
+  <div class="path" (click)="goThemes()">Thèmes</div>&nbsp;
+  <em class="fa fa-angle-right"></em>&nbsp;
+  <div>Posts</div>
+</section>
+<div class="container mt-50">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 mx-auto">
+      <div class="d-flex justify-content-end">
+
+        <button class="btn btn-primary" (click)="NewPost()">
+          + Nouvelle Publication
+        </button>
+      </div>
+      &nbsp;
+      <div class="table-responsive">
+        <table class="table  table-striped " *ngIf="posts.length > 0; else elsePosts">
           <caption>Liste des Publications</caption>
           <thead>
             <tr>
               <th scope="col">Publications</th>
               <th scope="col">Réponses</th>
               <th scope="col">Auteur</th>
-  
+
             </tr>
           </thead>
           <tbody>
@@ -45,7 +46,9 @@
             </tr>
           </tbody>
         </table>
-        <ng-template #elsePosts>
+      </div>
+      <ng-template #elsePosts>
+        <div class="table-responsive">
           <table class="table  table-striped ">
             <caption>Liste des Commentaires</caption>
             <thead>
@@ -53,7 +56,7 @@
                 <th scope="col">Publications</th>
                 <th scope="col">Réponses</th>
                 <th scope="col">Auteur</th>
-  
+
               </tr>
             </thead>
             <tbody>
@@ -66,8 +69,8 @@
               </tr>
             </tbody>
           </table>
-  
-        </ng-template>
-      </div>
+        </div>
+      </ng-template>
     </div>
   </div>
+</div>

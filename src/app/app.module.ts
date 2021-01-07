@@ -42,6 +42,7 @@ import { FormPostUserComponent } from './posts-user/form-post-user/form-post-use
 import { CommentsUserComponent } from './comments-user/comments-user.component';
 import { CommentUserComponent } from './comments-user/comment-user/comment-user.component';
 import { FormCommentUserComponent } from './comments-user/form-comment-user/form-comment-user.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { FormCommentUserComponent } from './comments-user/form-comment-user/form
     FormPostUserComponent,
     CommentsUserComponent,
     CommentUserComponent,
-    FormCommentUserComponent
+    FormCommentUserComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

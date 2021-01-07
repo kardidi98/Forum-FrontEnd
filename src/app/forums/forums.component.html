@@ -1,13 +1,29 @@
-
-
 <div class="d-flex justify-content-end">
-           
-    <button class="btn btn-primary" mat-button (click)="openForumDialog()">
-      + Nouveau Forum
-    </button>
-  </div>
-  &nbsp;
-    <table class="table  table-striped  tables" *ngIf="Forums.length>0; else elseForums">
+
+  <button class="btn btn-primary" mat-button (click)="openForumDialog()">
+    + Nouveau Forum
+  </button>
+</div>
+&nbsp;
+<div class="table-responsive">
+  <table class="table  table-striped  tables" *ngIf="Forums.length>0; else elseForums">
+    <caption>Liste des Forums</caption>
+    <thead>
+      <tr>
+        <th scope="col">Forum</th>
+        <th scope="col">Thèmes</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="theme-preview">
+      <tr *ngFor="let f of Forums" app-forum [Forum]="f">
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #elseForums>
+  <div class="table-responsive">
+    <table class="table  table-striped ">
       <caption>Liste des Forums</caption>
       <thead>
         <tr>
@@ -16,31 +32,16 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
-      <tbody class="theme-preview">
-        <tr *ngFor="let f of Forums" app-forum [Forum]="f">
+      <tbody>
+        <tr>
+          <td colspan="3">
+            <h2 class="container  d-flex justify-content-center">
+              Aucun résultat
+            </h2>
+          </td>
+
         </tr>
       </tbody>
     </table>
-    <ng-template #elseForums>
-      <table class="table  table-striped ">
-        <caption>Liste des Forums</caption>
-        <thead>
-          <tr>
-            <th scope="col">Forum</th>
-            <th scope="col">Thèmes</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
-            <td colspan="3">
-              <h2 class="container  d-flex justify-content-center">
-                Aucun résultat
-              </h2>
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-
-    </ng-template>
+  </div>
+</ng-template>
