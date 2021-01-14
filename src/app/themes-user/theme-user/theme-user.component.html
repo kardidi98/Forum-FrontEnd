@@ -18,7 +18,7 @@
 <td >
     <div *ngIf="userId === moderator._id; else notModerator">
       
-      <button class="btn btn-danger" (click)="deleteTheme()">Supprimer</button>&nbsp;
+      <button class="btn btn-danger" (click)="deleteTheme()" [disabled]="posts.length > 0">Supprimer</button>&nbsp;
     </div>
     <ng-template #notModerator>
           
