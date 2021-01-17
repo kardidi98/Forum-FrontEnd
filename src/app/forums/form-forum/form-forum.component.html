@@ -1,15 +1,14 @@
 <h1 mat-dialog-title>{{formTitle}}</h1>
 <div mat-dialog-content>
-<form #form="ngForm" (ngSubmit)="submitForum()">
+<form  [formGroup]="forumForm" (ngSubmit)="submitForum()">
     <div class="form-group">
         <label>Titre</label>
-        <input class="form-control" type="text" placeholder="Titre" name="titre" [(ngModel)]="Forum.titre" required
-             />
-
+        <input class="form-control" type="text" placeholder="Titre" formControlName="titre" />
+        <small *ngIf="forumForm.get('titre').hasError('required')" class="text-danger">Champs obligatoire</small>
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!form.valid" style="float: right;">
-        {{btnType}}
+    <button type="submit" class="btn btn-primary" [disabled]="!forumForm.valid" style="float: right;">
+        Ajouter
     </button>
 </form>
 </div>

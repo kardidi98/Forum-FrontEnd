@@ -1,19 +1,24 @@
 <h1 mat-dialog-title>Formulaire de connexion</h1>
 <div mat-dialog-content>
-  <small [hidden] = "!showError" style="color: red;">Email ou Mot de passe incorrect.</small>
-  <form #form="ngForm" (ngSubmit)="login()">
-    
-    &nbsp;
-    <div class="form-group">
-        <label>Email</label>
-        <input class="form-control" type="text" placeholder="Email" name="user" [(ngModel)]="user.email" required />
-    </div>
-    <div class="form-group">
-        <label>Mot de passe</label>
-        <input class="form-control" type="password" placeholder="******" name="password" [(ngModel)]="user.password" required />
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!form.valid" style="float: right;">
-        Se connecter
-    </button>
-</form>
+    <small [hidden]="!showError" style="color: red;">Email ou Mot de passe incorrect.</small>
+
+
+    <form (ngSubmit)="login()" [formGroup]="loginForm" >
+
+        &nbsp;
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="email" placeholder="Adresse@organisme.com"  formControlName="email"  />
+            <small *ngIf="loginForm.get('email').hasError('required')" class="text-danger">Champs obligatoire</small>
+            <small *ngIf="loginForm.get('email').hasError('pattern')" class="text-danger">Respecter la forme de l'email</small>
+        </div>
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input class="form-control" type="password" placeholder="******"  formControlName="password"/>
+            <small *ngIf="loginForm.get('password').hasError('required')" class="text-danger">Champs obligatoire</small>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" style="float: right;">
+            Se connecter
+        </button>
+    </form>
 </div>

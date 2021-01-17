@@ -29,28 +29,31 @@
                         {{formTitle}}
                     </div>
                     <div class="card-body">
-                        <form #form="ngForm" (ngSubmit)="submitTheme()">
+                        <form [formGroup]="themeForm" (ngSubmit)="submitTheme()">
+                            <div class="form-group">
+                                <input class="form-control" type="text" hidden="true"  formControlName="_id" />
+
+                            </div>
                             <div class="form-group">
                                 <label>Titre</label>
-                                <input class="form-control" type="text" placeholder="Titre" name="titre"
-                                    [(ngModel)]="Theme.titre" required [disabled]="Theme._id" />
+                                <input class="form-control" type="text" placeholder="Titre" formControlName="titre"  />
+                                <small *ngIf="themeForm.get('titre').hasError('required')" class="text-danger">Champs obligatoire</small>
 
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
                                 <editor apiKey="ll0mhqv3t1oqdtg5mythexok81f4jfbbxgh5kfe12fvn6nek" [init]="{plugins: 'link'}"
-                                    placeholder="Description" name="description"
-                                        [(ngModel)]="Theme.description" required></editor>
+                                    placeholder="Description" formControlName="description"></editor>
+                                    <small *ngIf="themeForm.get('description').hasError('required')" class="text-danger">Champs obligatoire</small>
                             </div>
                             <div class="form-group">
                                 <label>Modérateur</label>
-                                <select class="form-control" name="moderateur"
-                                    [(ngModel)]="Theme.moderateur" required>
-                                    <option value=""  disabled selected>Choisir un modérateur</option>
+                                <select class="form-control"formControlName="moderateur">
                                     <option *ngFor="let m of Moderators" [value]="m._id">{{m.nom + " "+ m.prenom}}</option>
                                 </select>
+                                <small *ngIf="themeForm.get('moderateur').hasError('required')" class="text-danger">Champs obligatoire</small>
                             </div>
-                            <button type="submit" class="btn btn-primary" [disabled]="!form.valid"
+                            <button type="submit" class="btn btn-primary" [disabled]="!themeForm.valid"
                                 style="float: right;">
                                 {{btnType}}
                             </button>

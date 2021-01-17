@@ -18,9 +18,10 @@ export class ForumUserComponent implements OnInit {
     private serviceTheme: ThemeService) { }
 
   ngOnInit(): void {
+  
     this.serviceTheme.getByForum(this.Forum._id).subscribe((res: any) => {
-      this.themes = res
-
+      this.themes = res;
+      
     })
 
   }

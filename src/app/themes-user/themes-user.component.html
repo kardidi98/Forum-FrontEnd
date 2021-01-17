@@ -29,7 +29,7 @@
               <th scope="col">Thème</th>
               <th scope="col">Modérateur</th>
               <th scope="col">Total des publications</th>
-              <th scope="col">Actions</th>
+              <th scope="col" *ngIf="isAuth">Actions</th>
             </tr>
           </thead>
           <tbody class="theme-preview">
@@ -48,7 +48,7 @@
                 <th scope="col">Thème</th>
                 <th scope="col">Modérateur</th>
                 <th scope="col">Total des publications</th>
-                <th scope="col">Actions</th>
+                <th scope="col" *ngIf="isAuth">Actions</th>
               </tr>
             </thead>
             <tbody>

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ListthemecomponentComponent } from './listthemecomponent/listthemecomponent.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ThemeComponent } from './listthemecomponent/theme/theme.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ThemeService } from 'src/services/theme.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
@@ -83,7 +83,8 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     FormsModule,
     HttpClientModule,
     MatDialogModule,
-    EditorModule
+    EditorModule,
+    ReactiveFormsModule
   ],
   providers: [
     ThemeService,

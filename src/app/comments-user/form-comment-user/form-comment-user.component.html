@@ -1,18 +1,19 @@
-<form #form="ngForm" (ngSubmit)="submitComment()">
+<form [formGroup]="commentForm" (ngSubmit)="submitComment()">
     <div class="form-group">
         <label>Message</label>
-        <input class="form-control" type="text" placeholder="Message" name="message"
-            [(ngModel)]="Comment.message" required [disabled]="!isAuth" />
+        <input class="form-control" type="text" placeholder="Message" formControlName="message" [disabled]="!isAuth" />
+        <small *ngIf="commentForm.get('message').hasError('required')" class="text-danger">Champs obligatoire</small>
 
     </div>
     <div class="form-group">
         <label>Description</label>
         <editor apiKey="ll0mhqv3t1oqdtg5mythexok81f4jfbbxgh5kfe12fvn6nek" [init]="{plugins: 'link'}"
-        placeholder="Description" name="description" [disabled]="!isAuth"
-            [(ngModel)]="Comment.description" required></editor>
+        placeholder="Description" formControlName="description"></editor>
+        <small *ngIf="commentForm.get('description').hasError('required')" class="text-danger">Champs obligatoire</small>
+
     </div>
     <div class="d-flex justify-content-end">
-       <button type="submit" class="btn btn-primary " [disabled]="!form.valid">
+       <button type="submit" class="btn btn-primary " [disabled]="!commentForm.valid">
         
             {{btnType}}
         </button> 

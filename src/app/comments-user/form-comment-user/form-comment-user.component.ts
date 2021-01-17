@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Comment } from 'src/modeles/Comment';
 import { CommentService } from 'src/services/comment.service';
@@ -15,14 +15,26 @@ export class FormCommentUserComponent implements OnInit {
   Comment : Comment = new Comment();
   btnType: string = "Soumettre";
   postId: any;
-  @ViewChild(NgForm) editForm: NgForm;
+  // @ViewChild(NgForm) editForm: NgForm;
   toasterConfig = { duration: 1000, closeButton: true, positionClass: "toast-top-right" };
   isAuth:any = localStorage.getItem("auth");
+
+  commentForm : FormGroup
 
   constructor(private serviceComment: CommentService
     , private notifyService: NotificationsService
     , private router: Router
-    , private route: ActivatedRoute) { }
+    , private route: ActivatedRoute, fb: FormBuilder) {
+      this.commentForm = fb.group({
+        _id: fb.control(this.Comment._id),
+        message : fb.control(this.Comment.message,[
+          Validators.required,
+        ]),
+        description : fb.control(this.Comment.description,[
+          Validators.required,
+        ]),
+      }) 
+     }
 
 
   ngOnInit(): void {
@@ -35,8 +47,10 @@ export class FormCommentUserComponent implements OnInit {
           
         }
         if(commentId){
-          this.serviceComment.getById(commentId).subscribe((res: any)=>{
-            this.Comment = res
+          this.serviceComment.getById(commentId).subscribe((data: Comment)=>{
+            this.commentForm.get("_id").setValue(data._id);
+            this.commentForm.get("message").setValue(data.message);
+            this.commentForm.get("description").setValue(data.description);
           })
           this.btnType="Modifier"
         }
@@ -47,9 +61,16 @@ export class FormCommentUserComponent implements OnInit {
 
  
   initialzeComment() {
-    this.editForm.reset();
+    this.commentForm.reset();
   }
   submitComment(){
+    this.Comment={
+      _id:this.commentForm.get("_id").value,
+      description: this.commentForm.get("description").value,
+      message:this.commentForm.get("message").value,
+      post: this.postId,
+      user:this.Comment.user
+    }
     if(this.Comment._id){
       this.updateComment()
     }
@@ -71,11 +92,8 @@ export class FormCommentUserComponent implements OnInit {
     this.serviceComment.update(this.Comment).subscribe((res)=>{
       this.notifyService.showSuccess("Commentaire mis à jour avec succès!", "Succès", this.toasterConfig)
         console.log(this.postId);
-        
-      setTimeout(() => {
-              window.location.reload();
-              
-        }, 3000)
+        this.router.navigateByUrl('/posts/'+this.postId);
+  
     })
   }
 }

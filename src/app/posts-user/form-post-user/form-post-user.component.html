@@ -32,22 +32,21 @@
                         {{formTitle}}
                     </div>
                     <div class="card-body">
-                        <form #form="ngForm" (ngSubmit)="submitPost()">
+                        <form [formGroup]="postForm" (ngSubmit)="submitPost()">
                             <div class="form-group">
                                 <label>Titre</label>
-                                <input class="form-control" type="text" placeholder="Titre" name="titre"
-                                    [(ngModel)]="Post.titre" required />
-
+                                <input class="form-control" type="text" placeholder="Titre" formControlName="titre" />
+                                <small *ngIf="postForm.get('titre').hasError('required')" class="text-danger">Champs obligatoire</small>
                             </div>
                             <div class="form-group">
                                 <label>Message</label>
                                 <editor apiKey="ll0mhqv3t1oqdtg5mythexok81f4jfbbxgh5kfe12fvn6nek"
-                                 [init]="{plugins: 'link'}" placeholder="Message" name="Message"
-                                [(ngModel)]="Post.message" required></editor>
+                                 [init]="{plugins: 'link'}" placeholder="Message" formControlName="message"></editor>
+                                 <small *ngIf="postForm.get('message').hasError('required')" class="text-danger">Champs obligatoire</small>
                             </div>
                             
                             
-                            <button type="submit" class="btn btn-primary" [disabled]="!form.valid"
+                            <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid"
                                 style="float: right;">
                                 {{btnType}}
                             </button>

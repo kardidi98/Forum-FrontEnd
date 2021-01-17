@@ -12,6 +12,7 @@ export class ThemesUserComponent implements OnInit {
   Themes: any = [];
   ForumId:any;
   keyword = "";
+  isAuth:any = localStorage.getItem("username");
   
   constructor(private router : Router,private  themeService: ThemeService ,
     private route:ActivatedRoute) { }
